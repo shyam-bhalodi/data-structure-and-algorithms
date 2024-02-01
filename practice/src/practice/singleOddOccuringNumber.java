@@ -11,7 +11,8 @@ public class singleOddOccuringNumber {
 	}
 	
 	 public static int singleNumber(int[] nums) {
-	       return  Arrays.stream(nums).reduce(0,(a,b)->a^b);  
+	    Arrays.binarySearch(nums,1);
+		return  Arrays.stream(nums).reduce(0,(a,b)->a^b);
 	    }
 
 }
