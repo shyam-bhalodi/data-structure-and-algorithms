@@ -3,7 +3,7 @@ package practice;
 public class nQueenProblemBacktracking {
 
 	static boolean[][] sol;
-	static int n=6;
+	static int n=5;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		sol=new boolean[n][n];
@@ -16,18 +16,20 @@ public class nQueenProblemBacktracking {
 		}
 	}
 	
-	public static boolean nQueenSol(int row) {
+	public static int nQueenSol(int row) {
 		if(n==row)
-			return true;
+			return 1;
+		int res=0;
 		for(int i=0;i<n;++i) {
-			System.out.println("pos is safe called for:"+row+i);
+		//	System.out.println("pos is safe called for:"+row+i);
 			if(isSafePos(row,i)) {
 				sol[row][i]=true;
-				if(nQueenSol(row+1)) return true;
+				res=res+nQueenSol(row+1);
+				//if(nQueenSol(row+1)) return true;
 				sol[row][i]=false;
 			}
 		}
-		return false;
+		return res;
 	}
 	
 	public static boolean isSafePos(int row,int col) {

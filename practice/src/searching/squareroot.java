@@ -4,7 +4,7 @@ public class squareroot {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(floorSqrt(9));
+		System.out.println(mySqrt(2147395599));
 	}
 	
 	static long floorSqrt(long x)
@@ -18,9 +18,26 @@ public class squareroot {
 			}else {
 				high=mid-1;
 			}
-				
+
 		}
 		return root;
 	 }
+public static int mySqrt(int x) {
+	if(x==0 || x==1){
+		return x;
+	}
+	int start=0,end=x,root=1;
+	while(start<=end){
+		int mid = start+(end-start)/2;
+		if((long)mid*mid<=(long)x){
+			root=mid;
+			start=mid+1;
+		}else{
+			end=mid-1;
+		}
+	}
+
+	return root;
+}
 
 }
